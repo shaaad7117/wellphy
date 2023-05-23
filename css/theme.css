@@ -51,7 +51,8 @@ a:hover {
 }
 
 .text-lg {
-  font-size: 18px !important;
+  font-size: 56px !important;
+  line-height: 66px;
 }
 
 .text-xl {
@@ -109,6 +110,11 @@ a.bg-warning:hover, a.bg-warning:focus {
 
 .bg-danger {
   background-color: #FF4943 !important;
+}
+.bg-1 {
+  background: url("../Newimg/Recep.JPG") no-repeat;
+  background-size: cover;
+  background-position:   center;
 }
 
 a.bg-danger:hover, a.bg-danger:focus {
@@ -804,6 +810,7 @@ a.text-dark:hover, a.text-dark:focus {
 .show > .btn-outline-dark.dropdown-toggle:focus {
   box-shadow: none;
 }
+
 
 .btn-link {
   font-weight: 400;

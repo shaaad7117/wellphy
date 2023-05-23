@@ -71,6 +71,7 @@ $('document').ready(function() {
   }]
 });
 
+
 // counter section
 var counters = $(".counters-item > strong");
 var countersQuantity = counters.length;
@@ -203,3 +204,145 @@ function  hideSubMenu(){
   menu.querySelector(".mobile-menu-head").classList.remove("active");
 }
 
+
+// nav bar sticky
+window.onscroll = function() {
+  myFunction();
+};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+// back to top
+$('document').ready(function() {
+  // Back to top
+  var backTop = $(".back-to-top");
+
+  $(window).scroll(function() {
+    if ($(document).scrollTop() > 400) {
+      backTop.css('visibility', 'visible');
+    } else if ($(document).scrollTop() < 400) {
+      backTop.css('visibility', 'hidden');
+    }
+  });
+
+  backTop.click(function() {
+    $('html').animate({
+      scrollTop: 0
+    }, 1000);
+    return false;
+  });
+});
+
+// wow
+$('document').ready(function() {
+  // Tooltips
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // Popovers
+  $('[data-toggle="popover"]').popover();
+
+  // Page scroll animate
+  new WOW().init();
+});
+
+// Item Slider
+$('.items-container').slick({
+  infinite: true,
+  arrows: true,
+  autoplay: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [{
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 525,
+      settings: {
+        slidesToShow: 1,
+        arrows: false
+      }
+    }
+  ]
+});
+
+
+$('#contact-form').validate({
+  rules: {
+    user_name: {
+      required: true,
+      minlength: 4
+    },
+    user_email: {
+      required: true,
+      email: true
+    },
+    // user_subject: {
+    // 	required: false
+    // },
+    user_message: {
+      required: true
+    }
+  },
+  messages: {
+    user_name: {
+      required: 'Come on, you have a name, don\'t you?',
+      minlength: 'Your name must consist of at least 2 characters'
+    },
+    user_email: {
+      required: 'Please put your email address'
+    },
+    user_message: {
+      required: 'Put some messages here?',
+      minlength: 'Your name must consist of at least 2 characters'
+    }
+  },
+  submitHandler: function(form) {
+    $(form).ajaxSubmit({
+      type: 'POST',
+      data: $(form).serialize(),
+      url: 'sendmail.php',
+      success: function() {
+        $('#contact-form #success').fadeIn();
+      },
+      error: function() {
+        $('#contact-form #error').fadeIn();
+      }
+    });
+  }
+});
+
+// counter section
+var counters = $(".counters-item > strong");
+var countersQuantity = counters.length;
+var counter = [];
+
+for (i = 0; i < countersQuantity; i++) {
+  counter[i] = parseInt(counters[i].getAttribute("data-to"));
+}
+
+var count = function(start, value, id) {
+  var localStart = start;
+  setInterval(function() {
+    if (localStart < value && localStart < 4) {
+      localStart++;
+      document.querySelector("#sel").innerHTML = localStart;
+    }
+  }, 4000);
+}
+
+for (j = 0; j < countersQuantity; j++) {
+  count(0, counter[j], "#" + counters[j].sel);
+}
