@@ -71,8 +71,8 @@
     font-size: 20px;
     line-height: 1;
 
-    opacity: .75;
-    color: gray;
+    opacity: .4;
+    color: #03a882;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -80,11 +80,11 @@
 
 .slick-prev
 {
-    left: -25px;
+    left: -10px;
 }
 [dir='rtl'] .slick-prev
 {
-    right: -25px;
+    right: -10px;
     left: auto;
 }
 .slick-prev:before
@@ -98,12 +98,12 @@
 
 .slick-next
 {
-    right: -25px;
+    right: -10px;
 }
 [dir='rtl'] .slick-next
 {
     right: auto;
-    left: -25px;
+    left: -10px;
 }
 .slick-next:before
 {
@@ -123,7 +123,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -25px;
+    bottom: -10px;
 
     display: block;
 

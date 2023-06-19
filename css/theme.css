@@ -1209,7 +1209,6 @@ a.text-dark:hover, a.text-dark:focus {
   transition: all .2s ease;
   z-index: 1100;
 }
-
 .back-to-top::after {
   content: "";
   position: absolute;

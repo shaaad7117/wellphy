@@ -38,6 +38,20 @@ $("document").ready(function () {
   });
 });
 
+// back to top
+$("document").ready(function () {
+  // Back to top
+  var backTop = $(".whastup-call");
+
+  $(window).scroll(function () {
+    if ($(document).scrollTop() > 400) {
+      backTop.css("visibility", "visible");
+    } else if ($(document).scrollTop() < 400) {
+      backTop.css("visibility", "hidden");
+    }
+  });
+});
+
 // wow
 $("document").ready(function () {
   // Tooltips
@@ -54,6 +68,7 @@ $("document").ready(function () {
 $(".items-container").slick({
   infinite: true,
   arrows: true,
+  dots: true,
   autoplay: true,
   slidesToShow: 3,
   slidesToScroll: 1,
@@ -62,14 +77,14 @@ $(".items-container").slick({
       breakpoint: 991,
       settings: {
         slidesToShow: 2,
-        arrows: false,
+        arrows: true,
       },
     },
     {
       breakpoint: 525,
       settings: {
         slidesToShow: 1,
-        arrows: false,
+        arrows: true,
       },
     },
   ],
@@ -116,8 +131,8 @@ var intervalId = setInterval(function () {
 // Testimonial Slider
 $(".testimonial-carousel").slick({
   infinite: true,
-  arrows: false,
-  // autoplay: true,
+  arrows: true,
+  autoplay: true,
   slidesToShow: 2,
   dots: true,
   slidesToScroll: 2,
@@ -136,6 +151,13 @@ $(".testimonial-carousel").slick({
     },
   ],
 });
+
+// using jQuery
+// var mainDiv =  $('#main-button');
+// mainDiv.on('click', function(){
+//   $(this).find('i').toggleClass('fa-times');
+//   $(this).toggleClass('open');
+// });
 
 // mega menu, menu and header nav bar start
 const menu = document.querySelector(".menu");
@@ -210,6 +232,13 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+var mainDiv = document.getElementById('main-button');
+mainDiv.addEventListener('click', function(){
+  this.children.item(0).classList.toggle('fa-times');
+  this.classList.toggle('open');
+});
+
+
 
 // back to top
 $("document").ready(function () {
@@ -232,6 +261,20 @@ $("document").ready(function () {
       1000
     );
     return false;
+  });
+});
+
+// Control Center Phonecall
+$("document").ready(function () {
+  // Back to top
+  var backTop = $(".phone-call");
+
+  $(window).scroll(function () {
+    if ($(document).scrollTop() > 400) {
+      backTop.css("visibility", "visible");
+    } else if ($(document).scrollTop() < 400) {
+      backTop.css("visibility", "hidden");
+    }
   });
 });
 
